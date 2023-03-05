@@ -1,6 +1,4 @@
-package Javathree11.src.main.java;
-
-import Javathree11.src.main.java.Token.types;
+package Javathree11;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +14,7 @@ public class Lexer {
     }
 
     public List<Token> Lex(List<String> lines) {
-        HashMap<String, types> knownWords = createKnownWordsMap();
+        HashMap<String, Token.types> knownWords = createKnownWordsMap();
 
 
         int leftparensCurrent = 0; //grow per leftparenthesis if exists
@@ -47,7 +45,7 @@ public class Lexer {
 
         if (i == lines.size()) { //if blank file
             //  String zero ="NULL1";
-            Token token0 = new Token(types.EndOfLine); //this will be used so letters appended will become a token type Number()
+            Token token0 = new Token(Token.types.EndOfLine); //this will be used so letters appended will become a token type Number()
             // token0.toString(); //call to string from token class
             // System.out.println(token0 + " line: " + lineNumber); //On line 0
             System.out.println(token0); //it will display Word with words from the build end
@@ -73,7 +71,7 @@ public class Lexer {
 
             if (k == line.length()) { //if empty line but something exists after then make this token.
                 //  String zero ="NULL2";
-                Token token0 = new Token(types.EndOfLine); //make end of line token
+                Token token0 = new Token(Token.types.EndOfLine); //make end of line token
                 // token0.toString(); //call to string from token class
 
                 /** add a completed token to an array list**/
@@ -449,7 +447,7 @@ decimal counter should not grow
 
 
                         System.out.println("building end: " + e); //display what has been finished appended
-                        Token token3 = new Token(e, types.Number, types.EndOfLine); //this will be used so letters appended will become a token type Number()
+                        Token token3 = new Token(e, Token.types.Number, Token.types.EndOfLine); //this will be used so letters appended will become a token type Number()
 
                         /**add token to array**/
                         arrayOfTokens.add(token3);
@@ -520,7 +518,7 @@ decimal counter should not grow
 
                         System.out.println("building end: " + wordAppend); //display what has been appended
 
-                        Token token2 = new Token(wordAppend, types.CHARACTERLITERAL, types.EndOfLine); //this will be used so letters appended will become a token of word()
+                        Token token2 = new Token(wordAppend, Token.types.CHARACTERLITERAL, Token.types.EndOfLine); //this will be used so letters appended will become a token of word()
 
                         /**add to array**/
                         arrayOfTokens.add(token2);
@@ -592,7 +590,7 @@ decimal counter should not grow
 
                         System.out.println("building end: " + wordAppend); //display what has been appended
 
-                        Token token2 = new Token(wordAppend, types.STRINGLITERAL, types.EndOfLine); //this will be used so letters appended will become a token of word()
+                        Token token2 = new Token(wordAppend, Token.types.STRINGLITERAL, Token.types.EndOfLine); //this will be used so letters appended will become a token of word()
                         /** add token to array**/
                         arrayOfTokens.add(token2);
 
@@ -650,12 +648,12 @@ decimal counter should not grow
                             knownWords.get(wordAppend);
                             Token tokenIsReservedWord = new Token(knownWords.get(wordAppend));
 
-                            Token identifierWord = new Token(types.IDENTIFIER);
+                            Token identifierWord = new Token(Token.types.IDENTIFIER);
 
 
                             //make an end of line and identifier token and print that
 
-                            Token tokenEndOfLineASSIGNM2 = new Token(types.EndOfLine);
+                            Token tokenEndOfLineASSIGNM2 = new Token(Token.types.EndOfLine);
                             System.out.println(identifierWord + "(" + tokenIsReservedWord + ")" + tokenEndOfLineASSIGNM2);
 
                             /** add tokens to array**/
@@ -680,7 +678,7 @@ decimal counter should not grow
                         } else {
                             //else function like normal with word
                             lineNumber++; //increase line count
-                            Token token2 = new Token(wordAppend, types.WORD, types.EndOfLine); //this will be used so letters appended will become a token of word()
+                            Token token2 = new Token(wordAppend, Token.types.WORD, Token.types.EndOfLine); //this will be used so letters appended will become a token of word()
                             /**add token to array**/
                             arrayOfTokens.add(token2);
 
@@ -778,7 +776,7 @@ decimal counter should not grow
                         knownWords.get(wordAppend);
                         Token tokenIsReservedWord = new Token(knownWords.get(wordAppend));
 
-                        Token identifierWord = new Token(types.IDENTIFIER);
+                        Token identifierWord = new Token(Token.types.IDENTIFIER);
 
                         //make an end of line and identifier token and print that
 
@@ -810,7 +808,7 @@ decimal counter should not grow
                         rebuildWord.setLength(0); //set length to 0 when done
                     } else { //do like normal
 
-                        Token previousWord = new Token(types.CHARACTERLITERAL);
+                        Token previousWord = new Token(Token.types.CHARACTERLITERAL);
                         //old //   Token token4 = new Token(wordAppend, types.WORD, types.EndOfLine); //this will be used so letters appended will become a token type Word()
 
                         /**add token to array**/
@@ -856,7 +854,7 @@ decimal counter should not grow
                         knownWords.get(wordAppend);
                         Token tokenIsReservedWord = new Token(knownWords.get(wordAppend));
 
-                        Token identifierWord = new Token(types.IDENTIFIER);
+                        Token identifierWord = new Token(Token.types.IDENTIFIER);
 
                         /**add tokens to list*/
                         arrayOfTokens.add(identifierWord);
@@ -897,7 +895,7 @@ decimal counter should not grow
                         rebuildWord.setLength(0); //set length to 0 when done
                     } else { //do like normal
 
-                        Token previousWord = new Token(types.STRINGLITERAL);
+                        Token previousWord = new Token(Token.types.STRINGLITERAL);
                         //old //   Token token4 = new Token(wordAppend, types.WORD, types.EndOfLine); //this will be used so letters appended will become a token type Word()
 
                         /**add token to list**/
@@ -943,7 +941,7 @@ decimal counter should not grow
                         knownWords.get(wordAppend);
                         Token tokenIsReservedWord = new Token(knownWords.get(wordAppend));
 
-                        Token identifierWord = new Token(types.IDENTIFIER);
+                        Token identifierWord = new Token(Token.types.IDENTIFIER);
 
                         /**add tokens to list**/
                         arrayOfTokens.add(identifierWord);
@@ -970,7 +968,7 @@ decimal counter should not grow
                         rebuildWord.setLength(0); //set length to 0 when done
                     } else { //do like normal
 
-                        Token previousWord = new Token(types.WORD);
+                        Token previousWord = new Token(Token.types.WORD);
                         //old //   Token token4 = new Token(wordAppend, types.WORD, types.EndOfLine); //this will be used so letters appended will become a token type Word()
 
                         /** add tokens to list **/
@@ -1018,7 +1016,7 @@ decimal counter should not grow
 
                     System.out.println("building previous state: " + numberAppend); //build current letters to append
 
-                    Token token4 = new Token(numberAppend, types.Number); //this will be used so letters appended will become a token type Word()
+                    Token token4 = new Token(numberAppend, Token.types.Number); //this will be used so letters appended will become a token type Word()
                     //  token4.toString(); //call to string from token class
 
                     /**add token to list**/
@@ -1050,9 +1048,9 @@ decimal counter should not grow
 
     }
 
-    private HashMap<String, types> createKnownWordsMap() {
+    private HashMap<String, Token.types> createKnownWordsMap() {
         /*key value store String is the key and enum Types is the value*/
-        HashMap<String, types> knownWords = new HashMap<String, types>(); //types is the enum types variable in token
+        HashMap<String, Token.types> knownWords = new HashMap<String, Token.types>(); //types is the enum types variable in token
         /*looking up key and value
          * String "while", types is from Token*/
 
@@ -1060,119 +1058,119 @@ decimal counter should not grow
         System.out.println("Initial ArrayList size " + arrayOfTokens);
         System.out.println();
 
-        knownWords.put("define", types.DEFINE);
-        knownWords.put("constant", types.CONSTANT);
+        knownWords.put("define", Token.types.DEFINE);
+        knownWords.put("constant", Token.types.CONSTANT);
 
         /*for control loops*/
-        knownWords.put("while", types.WHILE);
-        knownWords.put("do", types.DO);
+        knownWords.put("while", Token.types.WHILE);
+        knownWords.put("do", Token.types.DO);
         int thisWhileOrDoEND = 0; //grow until all blocks
-        knownWords.put("for", types.FOR);
+        knownWords.put("for", Token.types.FOR);
         int thisForEnd = 0;  //grow until all blocks
 
         /*for if statements*/
-        knownWords.put("if", types.IF);
-        knownWords.put("elseif", types.ELSIF); //else if
-        knownWords.put("else", types.ELSE);
+        knownWords.put("if", Token.types.IF);
+        knownWords.put("elseif", Token.types.ELSIF); //else if
+        knownWords.put("else", Token.types.ELSE);
 
         /*for switch cases*/
-        knownWords.put("switch", types.SWITCH);//for switch case
-        knownWords.put("case", types.CASE); //for switch case
+        knownWords.put("switch", Token.types.SWITCH);//for switch case
+        knownWords.put("case", Token.types.CASE); //for switch case
 
-        knownWords.put("then", types.THEN); //place after the boolean expression of an if or if else before block statement
-        knownWords.put("from", types.FROM); //type limit start
-        knownWords.put("to", types.TO); // type limit end
-        knownWords.put("repeatuntil", types.REPEATUNTIL);  //use for stopping a loop
+        knownWords.put("then", Token.types.THEN); //place after the boolean expression of an if or if else before block statement
+        knownWords.put("from", Token.types.FROM); //type limit start
+        knownWords.put("to", Token.types.TO); // type limit end
+        knownWords.put("repeatuntil", Token.types.REPEATUNTIL);  //use for stopping a loop
 
 
-        knownWords.put("arrayof", types.ARRAYOF); //array
-        knownWords.put("start", types.START); //array function find start array
-        knownWords.put("end", types.END); //array function find end of array
+        knownWords.put("arrayof", Token.types.ARRAYOF); //array
+        knownWords.put("start", Token.types.START); //array function find start array
+        knownWords.put("end", Token.types.END); //array function find end of array
 
-        knownWords.put(":=", types.ASSIGNVARIABLE); // for assign to a variable like a := 0
+        knownWords.put(":=", Token.types.ASSIGNVARIABLE); // for assign to a variable like a := 0
 
-        knownWords.put("character", types.CHARACTER); //for char single character
+        knownWords.put("character", Token.types.CHARACTER); //for char single character
 
-        knownWords.put("integer", types.INTEGER); //for 32-bit signed number
+        knownWords.put("integer", Token.types.INTEGER); //for 32-bit signed number
 
-        knownWords.put("real", types.REAL);//floating point type
+        knownWords.put("real", Token.types.REAL);//floating point type
 
-        knownWords.put("string", types.STRING); //for multicharacter
+        knownWords.put("string", Token.types.STRING); //for multicharacter
 
-        knownWords.put("boolean", types.BOOLEAN); //for true and false
+        knownWords.put("boolean", Token.types.BOOLEAN); //for true and false
 
-        knownWords.put("var", types.VAR);
+        knownWords.put("var", Token.types.VAR);
         /*The var keyword must be used before each variable declaration that is alterable.
         for functions and to
          */
 
-        knownWords.put("variables", types.DATATYPE); //keyword to define variables
-        knownWords.put(":", types.DATATYPE); //to use after list of variables and after ":" the name data datatype will be given
+        knownWords.put("variables", Token.types.DATATYPE); //keyword to define variables
+        knownWords.put(":", Token.types.DATATYPE); //to use after list of variables and after ":" the name data datatype will be given
 
         /*IO functions*/
-        knownWords.put("read", types.READ);//reading value
-        knownWords.put("write", types.WRITE);//writing value
+        knownWords.put("read", Token.types.READ);//reading value
+        knownWords.put("write", Token.types.WRITE);//writing value
 
         /*String Functions*/
-        knownWords.put("left", types.LEFTSOMESTRING); //for getting first length characters
-        knownWords.put("right", types.RIGHTSOMESTRING); //for getting last length characters
-        knownWords.put("substring", types.SUBSTRING); //for getting substring from index of
+        knownWords.put("left", Token.types.LEFTSOMESTRING); //for getting first length characters
+        knownWords.put("right", Token.types.RIGHTSOMESTRING); //for getting last length characters
+        knownWords.put("substring", Token.types.SUBSTRING); //for getting substring from index of
 
 
 
 
         /*for boolean compares*/
-        knownWords.put("<>", types.NOTEQUAL); //should be higher than and and or
-        knownWords.put("&&", types.AND); //should be higher than or
-        knownWords.put("||", types.OR);
-        knownWords.put("!", types.NOT);
+        knownWords.put("<>", Token.types.NOTEQUAL); //should be higher than and and or
+        knownWords.put("&&", Token.types.AND); //should be higher than or
+        knownWords.put("||", Token.types.OR);
+        knownWords.put("!", Token.types.NOT);
         /*compares*/
-        knownWords.put("null", types.NULL);
-        knownWords.put("=", types.EQUAL);
-        knownWords.put("<", types.LESSTHAN);
-        knownWords.put(">", types.GREATERTHAN);
-        knownWords.put("<=", types.LESSTHANOREQUAL);
-        knownWords.put(">=", types.GREATERTHANOREQUAL);
+        knownWords.put("null", Token.types.NULL);
+        knownWords.put("=", Token.types.EQUAL);
+        knownWords.put("<", Token.types.LESSTHAN);
+        knownWords.put(">", Token.types.GREATERTHAN);
+        knownWords.put("<=", Token.types.LESSTHANOREQUAL);
+        knownWords.put(">=", Token.types.GREATERTHANOREQUAL);
 
-        knownWords.put("ident", types.INDENT);//block start
+        knownWords.put("ident", Token.types.INDENT);//block start
         int identcount = 0; //count how many to make ident
-        knownWords.put("dedent", types.DEDENT); //block end
+        knownWords.put("dedent", Token.types.DEDENT); //block end
         int dedent = 0; //count how many align to ident to call dedent
 
         /*make higher priority than exponent*/
-        knownWords.put("(", types.LEFTPARENTHESIS);
-        knownWords.put(")", types.RIGHTPARENTHESIS);
+        knownWords.put("(", Token.types.LEFTPARENTHESIS);
+        knownWords.put(")", Token.types.RIGHTPARENTHESIS);
 
 
-        knownWords.put("^", types.EXPONENT); //need to set priority higher than multiply and divide
+        knownWords.put("^", Token.types.EXPONENT); //need to set priority higher than multiply and divide
         // Multiply and Divide should be higher than Add and Subtract
         //   highest where left most is higher than right to it
-        knownWords.put("*", types.MULTIPLY);
-        knownWords.put("/", types.DIVIDE);
-        knownWords.put("%", types.MOD); //modulo
+        knownWords.put("*", Token.types.MULTIPLY);
+        knownWords.put("/", Token.types.DIVIDE);
+        knownWords.put("%", Token.types.MOD); //modulo
 
                 /* add and subtract
                 higher priority is when is left
                  */
-        knownWords.put("+", types.ADD);
-        knownWords.put("-", types.SUBTRACT);
+        knownWords.put("+", Token.types.ADD);
+        knownWords.put("-", Token.types.SUBTRACT);
 
-        knownWords.put("SQRT", types.SQUAREROOT);
+        knownWords.put("SQRT", Token.types.SQUAREROOT);
 
-        knownWords.put("^", types.EXPONENT); //need to set priority higher than multiply and divide
+        knownWords.put("^", Token.types.EXPONENT); //need to set priority higher than multiply and divide
         // Multiply and Divide should be higher than Add and Subtract
         //   highest where left most is higher than right to it
-        knownWords.put("*", types.MULTIPLY);
-        knownWords.put("/", types.DIVIDE);
-        knownWords.put("%", types.MOD); //modulo
+        knownWords.put("*", Token.types.MULTIPLY);
+        knownWords.put("/", Token.types.DIVIDE);
+        knownWords.put("%", Token.types.MOD); //modulo
 
                 /* add and subtract
                 higher priority is when is left
                  */
-        knownWords.put("+", types.ADD);
-        knownWords.put("-", types.SUBTRACT);
+        knownWords.put("+", Token.types.ADD);
+        knownWords.put("-", Token.types.SUBTRACT);
 
-        knownWords.put("SQRT", types.SQUAREROOT);
+        knownWords.put("SQRT", Token.types.SQUAREROOT);
 
         return knownWords;
     }

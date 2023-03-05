@@ -1,4 +1,4 @@
-package Javathree11.src.main.java;
+package Javathree11;
 
 public class IntegerNode extends Node {
     private final int intNodeValue;

@@ -1,4 +1,4 @@
-package Javathree11.src.main.java;
+package Javathree11;
 
 public abstract class Node { //for deriving mathopnode class, integer and (real) node classes
 

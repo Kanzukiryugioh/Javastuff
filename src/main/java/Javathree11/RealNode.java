@@ -1,4 +1,4 @@
-package Javathree11.src.main.java;
+package Javathree11;
 
 public class RealNode extends Node {
     private final float floatNodeValue; //derived from node class to hold integer values

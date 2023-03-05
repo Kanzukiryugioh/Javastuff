@@ -1,4 +1,4 @@
-package Javathree11.src.main.java;
+package Javathree11;
 
 
 public class MathOpNode extends Node { //derived from node class
